@@ -111,7 +111,7 @@ class LinearRegression():
                 #Calculo do Somatório(ei * xi) ou (ei * xij - reg/n * wj)
                 exi = 0     
                 for j in range(0, X.shape[0]):
-                    exi += (y[j] - np.sum((self.w * X[j]) * (-1))) * X[j]
+                    exi += (y[j] - np.sum((self.w * X[j]) * (-1))) * X[j] #Correção no gradiente
                 
                 exi_n = (exi/X.shape[0])
                 
