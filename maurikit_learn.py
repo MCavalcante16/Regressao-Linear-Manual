@@ -111,7 +111,7 @@ class LinearRegression():
                 #Calculo do Somatório(ei * xi) ou (ei * xij - reg/n * wj)
                 exi = 0     
                 for j in range(0, X.shape[0]):
-                    exi += (y[j] - ((self.w * X[j]) * (-1))) * X[j]
+                    exi += (y[j] - np.sum((self.w * X[j]) * (-1))) * X[j]
                 
                 exi_n = (exi/X.shape[0])
                 
@@ -142,7 +142,7 @@ class LinearRegression():
             for i in range(0, epochs):
                 #print("Epoch: " + str(i))
                 for j in range(0, X.shape[0]):
-                    ex = (y[j] - ((self.w * X[j]) * (-1))) * X[j]
+                    ex = (y[j] - np.sum((self.w * X[j]) * (-1))) * X[j]
                     self.w = self.w + learning_rate * ex
                 
                 #MSE's
